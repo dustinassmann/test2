@@ -2,14 +2,9 @@ FROM nginx:1.19.0-alpine
 
 LABEL maintainer="mritd <mritd@linux.com>"
 
-ARG TZ='Asia/Shanghai'
 ENV TZ ${TZ}
 
-RUN apk upgrade --update \
-    && apk add bash tzdata curl wget ca-certificates \
-    && ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \
-    && echo ${TZ} > /etc/timezone \
-    && rm -rf /usr/share/nginx/html /var/cache/apk/*
+
 
 COPY test2 /usr/share/nginx/html
 
