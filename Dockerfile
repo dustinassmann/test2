@@ -11,7 +11,7 @@ RUN apk upgrade --update \
     && echo ${TZ} > /etc/timezone \
     && rm -rf /usr/share/nginx/html /var/cache/apk/*
 
-COPY landscape-animation-experiment /usr/share/nginx/html
+COPY test2 /usr/share/nginx/html
 
 EXPOSE 80 443
 
